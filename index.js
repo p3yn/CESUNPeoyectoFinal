@@ -12,16 +12,22 @@ global._ = require('lodash');
 
 
 // otras librerías
-// app.use('helmet');
+//app.use('helmet');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors());
 app.use(morgan('combined'));
 
-// conección por EXPRESS
+//RUTAS DE CONEXIÓN EN OTRO ARCHIVO
+app.use(require('./app/routes/index.routes'));
+
+// CONEXIÓN por EXPRESS
 app.listen(port,() =>{
-    console.log('Estamos en vivo');    
-});
+     console.log('Estamos en vivo');    
+ });
+
+
+
 
 serverConn = (req, res) => {
     try{
