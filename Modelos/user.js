@@ -16,7 +16,7 @@ var userSchema = new mongoose.Schema({
     email: { type: String, unique: true, lowercase: true, index: true },
     password: String,
     salt: String,
-    rol: { nombreRol, _id },
+    rol: { roleSchema},
 }, { timestamps: true });
 
 mongoose.model('User', userSchema);

@@ -1,4 +1,7 @@
 {
+  "name": "proyecto_final",
+  "author": "Ivan Medrano, CESUN IDS 7mo",
+  "license": "ISC",
   "dependencies": {
     "axios": "^0.27.2",
     "body-parser": "^1.20.0",
