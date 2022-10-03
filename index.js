@@ -1,8 +1,10 @@
 //Agregar las dependencias
 var serverConn = require('../TareaCuatro/Modelos/database')
+const express = require('express');
 const app = require('express')();
 const port = 8000;
 const bodyParser = require('body-parser');
+const path = require('path');
 const helmet = require('helmet');
 const cors = require('cors');
 const morgan = require('morgan');
@@ -20,6 +22,15 @@ app.use(morgan('combined'));
 
 //RUTAS DE CONEXIÓN EN OTRO ARCHIVO
 app.use(require('./app/routes/index.routes'));
+
+//SATIC FILES ROUTES
+app.use(express.static(path.join(__dirname,'./public')));   
+
+
+
+app.use((req, res) => {
+    res.sendFile(path.join(__dirname,'./public/index.html'))
+})
 
 // CONEXIÓN por EXPRESS
 app.listen(port,() =>{

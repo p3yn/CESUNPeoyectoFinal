@@ -21,6 +21,7 @@
     "passport-headerapikey": "^1.2.2",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
+    "path": "^0.12.7",
     "require-directory": "^2.1.1",
     "tz-lookup": "^6.1.25"
   }
