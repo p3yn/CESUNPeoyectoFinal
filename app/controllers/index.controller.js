@@ -1,7 +1,8 @@
 const controller = {}
+const title = 'INDEX DESDE EL SERVIDOR MONGODB'
 
 controller.index = (req, res) => {
-    res.send('Servidor corriendo correctamente desde index.routes, y controlador en index.controller')
+    res.render('index', {title:title})
 };
 
 module.exports = controller;

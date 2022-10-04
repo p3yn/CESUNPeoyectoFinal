@@ -10,9 +10,12 @@ const cors = require('cors');
 const morgan = require('morgan');
 const { urlencoded } = require('body-parser');
 const database = require('../TareaCuatro/Modelos/database');
+const { dirname } = require('path');
 global._ = require('lodash');
 
 
+app.set('view engine','pug');
+app.set('views', path.join(__dirname,'/app/views'))
 // otras librerías
 //app.use('helmet');
 app.use(bodyParser.json());
@@ -24,12 +27,12 @@ app.use(morgan('combined'));
 app.use(require('./app/routes/index.routes'));
 
 //SATIC FILES ROUTES
-app.use(express.static(path.join(__dirname,'./public')));   
+app.use(express.static(path.join(__dirname,'./public'))); 
 
 
 
 app.use((req, res) => {
-    res.sendFile(path.join(__dirname,'./public/index.html'))
+    res.sendFile(path.join(__dirname,'./public/404.html'))
 })
 
 // CONEXIÓN por EXPRESS
