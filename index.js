@@ -1,5 +1,5 @@
 //Agregar las dependencias
-var serverConn = require('../TareaCuatro/Modelos/database')
+var serverConn = require('./app/dbConnection/database')
 const express = require('express');
 const app = require('express')();
 const port = 8000;
@@ -9,13 +9,15 @@ const helmet = require('helmet');
 const cors = require('cors');
 const morgan = require('morgan');
 const { urlencoded } = require('body-parser');
-const database = require('../TareaCuatro/Modelos/database');
+const database = require('./app/dbConnection/database');
 const { dirname } = require('path');
 global._ = require('lodash');
 
 
 app.set('view engine','pug');
-app.set('views', path.join(__dirname,'/app/views'))
+app.set('views', path.join(__dirname,'/app/views'));
+
+
 // otras librerías
 //app.use('helmet');
 app.use(bodyParser.json());
