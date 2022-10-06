@@ -6,7 +6,7 @@
 
 //CRUD listado, detalle, creacion,, actualizar
 
-const { roleSchema } = require('./roles.js');
+//const { roleSchema } = require('./roles.js');
 
 var mongoose = require('mongoose');
 var crypto = require('crypto');
@@ -16,18 +16,18 @@ var userSchema = new mongoose.Schema({
     email: { type: String, unique: true, lowercase: true, index: true },
     password: String,
     salt: String,
-    rol: { roleSchema},
+    //rol: {roleSchema},
 }, { timestamps: true });
 
-mongoose.model('User', userSchema);
+mongoose.model('Users', userSchema);
 
-userSchema.pre('save', function (next) {
-    if (this.password) {
-        this.salt = new Buffer(
-            crypto.randomBytes(16).toString('base64'),
-            'base64'
-        )
-    }
-});
+// userSchema.pre('save', function (next) {
+//     if (this.password) {
+//         this.salt = new Buffer(
+//             crypto.randomBytes(16).toString('base64'),
+//             'base64'
+//         )
+//     }
+// });
 
-module.exports = user = mongoose.model('User', userSchema);
+module.exports = Users = mongoose.model('Users', userSchema);

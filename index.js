@@ -9,7 +9,6 @@ const helmet = require('helmet');
 const cors = require('cors');
 const morgan = require('morgan');
 const { urlencoded } = require('body-parser');
-const database = require('./app/dbConnection/database');
 const { dirname } = require('path');
 global._ = require('lodash');
 
@@ -38,11 +37,9 @@ app.use((req, res) => {
 })
 
 // CONEXIÓN por EXPRESS
-app.listen(port,() =>{
+app.listen(port,() =>{ 
      console.log('Estamos en vivo');    
  });
-
-
 
 
 serverConn = (req, res) => {
