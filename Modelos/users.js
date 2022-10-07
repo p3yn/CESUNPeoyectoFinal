@@ -1,7 +1,6 @@
 //Basic Auth   jasonwebtoken o token web
-//Info base del usuasrio
-//Rol
-//sucursal
+//Info base del usuario
+
 
 
 //CRUD listado, detalle, creacion,, actualizar
@@ -11,7 +10,7 @@
 var mongoose = require('mongoose');
 var crypto = require('crypto');
 
-var userSchema = new mongoose.Schema({
+var UserSchema = new mongoose.Schema({
     name: String,
     email: { type: String, unique: true, lowercase: true, index: true },
     password: String,
@@ -19,7 +18,7 @@ var userSchema = new mongoose.Schema({
     //rol: {roleSchema},
 }, { timestamps: true });
 
-mongoose.model('Users', userSchema);
+mongoose.model('users', UserSchema);
 
 // userSchema.pre('save', function (next) {
 //     if (this.password) {
@@ -30,4 +29,4 @@ mongoose.model('Users', userSchema);
 //     }
 // });
 
-module.exports = Users = mongoose.model('Users', userSchema);
+module.exports = Users = mongoose.model('users', UserSchema);
